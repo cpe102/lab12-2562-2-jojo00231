@@ -17,4 +17,23 @@ int main()
     return 0;
 }
 
-//Write definition of stat() here 
+//Write definition of stat() here
+void stat(const double d[],int N,double f[]){
+    double sum=0,sum2=0;
+    
+	for(int i= 0;i<N;i++) {
+		sum += d[i]; 
+		sum2 += pow(d[i],2) ;
+	}
+    
+    double max=d[0],min=d[0];
+	for(int i= 0;i<N;i++) {
+		if(max<=d[i]) max=d[i];
+		if(min>=d[i]) min=d[i];
+    }
+    
+    f[0] = sum/N;
+    f[1] = sqrt(((1/(double)N)*sum2)-pow(f[0],2));
+    f[2] = max;
+    f[3] = min;
+}

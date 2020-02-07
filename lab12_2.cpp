@@ -22,4 +22,27 @@ int main()
              return 0;    
 }
 
-// Write definition of updateImage() and showImage() here
+void updateImage(bool d[][M],int s,int x,int y){
+	for(int i=0;i<N;i++){
+		for(int j=0;j<M;j++){
+			if(sqrt(pow(i-x,2)+(pow(j-y,2)))<=s-1)
+				d[i][j]=1;
+			}
+	}
+}
+
+void showImage(const bool d[][M]){
+	
+	for(int i=0;i<M+2;i++) cout << "_"  ;
+	for(int i=0;i<N;i++){
+		cout << "|" ;
+		for(int j=0;j<M;j++){
+			if(d[i][j]==1) cout << "*" ;
+			else cout << " " ;
+		}
+		cout << "|" ;
+		cout << endl ;
+	}
+	for(int i=0;i<M+2;i++) cout << "_"  ;
+    cout<<endl;
+}
